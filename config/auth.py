@@ -1,3 +1,5 @@
+#!/bin/env python
+#-*-coding:UTF-8-*-
 #
 # Made by LoboGuardian
 # Follow me on https://github.com/LoboGuardian
@@ -6,3 +8,5 @@
 
 TOKEN = '<YOUR_TOKEN>'
 
+if not TOKEN:
+    raise ValueError("Faltan variables de entorno necesarias: TOKEN")
