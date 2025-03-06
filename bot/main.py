@@ -1,6 +1,6 @@
 #!/bin/env python
 #-*-coding:UTF-8-*-
-# main.py
+# bot/main.py
 #
 # Made by LoboGuardian
 # Follow me on https://github.com/LoboGuardian
@@ -34,42 +34,30 @@ Usage:
 ------
 Run this script to start the bot.
 """
-
-# Define the version in a variable
-VERSION = "Kernel-2024.10.1"
-
-# Third-party libraries
+import logging
 from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
-from telegram.ext import (
-    ApplicationBuilder,
-    CallbackContext,
-    CommandHandler,
-    MessageHandler,
-    filters)
+# Third-party libraries
+from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler, MessageHandler, filters
 
-# Local imports
-from config.auth import TOKEN
-from modules.modules import *
+# from bot.config import ApplicationBuilder, CommandHandler, filters
+from config import TOKEN
+from handlers import start, help, unknown, errors
+# from utils.logger import configure_logging
 
-# List of command strings
-COMMANDS = [
-    "/start", "/help"
-]
-
-# Main function to start the bot
 def main() -> None:
+    """Initialize the bot and register handlers."""
     app = ApplicationBuilder().token(TOKEN).build()
 
     # Register command handlers
-    for command in COMMANDS:
-        app.add_handler(CommandHandler(command[1:], globals().get(f"{command[1:]}_command")))
+    app.add_handler(CommandHandler("start", start.start_command))
+    app.add_handler(CommandHandler("help", help.help_command))
 
-    # Error handler
-    app.add_handler(MessageHandler(filters.COMMAND, unknown_handle_command))
-    app.add_error_handler(error_handler_command)
+    # Error and unknown command handlers
+    app.add_handler(MessageHandler(filters.COMMAND, unknown.unknown_handle_command))
+    app.add_error_handler(errors.error_handler_command)
 
     # Start polling
     app.run_polling()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

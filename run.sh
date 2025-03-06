@@ -18,5 +18,5 @@
 # Note: You should have already set up your project with pipenv,
 # including creating the Pipfile and installing dependencies.
 
-# Execute the main application within the Pipenv environment
-pipenv run python3 main.py
+# Ensure the script runs with Poetry
+poetry run python bot/main.py

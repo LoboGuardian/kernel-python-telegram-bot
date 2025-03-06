@@ -1,0 +1,94 @@
+# --- 🔹 Python General ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+.Python
+python.lock
+poetry.lock
+
+# --- 🔹 Archivos de Configuración y Variables de Entorno ---
+.env
+.env.*
+!env.examplec
+
+# --- 🔹 Carpetas y Archivos de Dependencias ---
+/venv/
+/.venv/
+Pipfile
+Pipfile.lock
+.poetry_cache/
+poetry.lock
+
+# --- 🔹 Archivos de Base de Datos (Ignorar SQLite y otros DB locales) ---
+*.db
+*.sqlite
+*.sqlite3
+/db/
+database.sqlite3
+bot_database.db
+
+# --- 🔹 Archivos de Log y Registros ---
+logs/
+*.log
+debug.log
+telegram_bot.log
+
+# --- 🔹 Archivos Temporales del Editor ---
+*.sublime-workspace
+*.sublime-project
+.vscode/
+.idea/
+*.iml
+
+# --- 🔹 Archivos del Sistema Operativo ---
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- 🔹 Bytecode Compilado de Caches ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- 🔹 Caché y Archivos Temporales de Python ---
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# --- 🔹 Test y Cobertura ---
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+*.hypothesis/
+cache/
+pytestdebug.log
+
+# --- 🔹 Archivos de Construcción y Distribución ---
+build/
+dist/
+*.whl
+*.egg
+*.tar.gz
+*.zip
+
+# --- 🔹 SSH y Claves Privadas (Precaución) ---
+id_rsa
+id_rsa.pub
+*.pem
+*.key
+
+# --- 🔹 Docker y Contenedores ---
+docker-compose.yml
+Dockerfile
+.dockerignore
