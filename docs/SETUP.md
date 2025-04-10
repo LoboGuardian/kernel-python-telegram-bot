@@ -2,14 +2,14 @@
 
 This guide explains how to set up and run the bot.
 
-## 1️⃣ Install Dependencies
+## 1. Install Dependencies
 Ensure **Poetry** is installed:
 ```bash
 pip install poetry
 poetry install
 ```
 
-2️⃣ Configure .env
+## 2. Configure .env
 Create a .env file:
 
 ```ini
@@ -40,7 +40,7 @@ DATABASE_TYPE=sqlite
 DATABASE_FILE=bot_database.db
 ```
 
-3️⃣ Run the Bot
+## 3. Run the Bot
 
 - Using Polling (Default):
 

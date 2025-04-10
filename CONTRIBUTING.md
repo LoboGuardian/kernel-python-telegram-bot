@@ -3,9 +3,9 @@
 Thank you for your interest in contributing to this project! 🎉  
 This document provides guidelines to **ensure high-quality contributions**.
 
-## 🛠 How to Contribute
+## How to Contribute
 
-### **1️⃣ Fork the Repository**
+### **1. Fork the Repository**
 
 1. Click on **Fork** at the top right of this repo.
 
@@ -27,7 +27,7 @@ cd kernel-telegram-bot
 git checkout -b feature/your-feature
 ```
 
-### **2️⃣ Install Dependencies**
+### **2. Install Dependencies**
 
 Ensure you have **Poetry** installed:
 
@@ -36,7 +36,7 @@ pip install poetry
 poetry install
 ```
 
-### **3️⃣ Make Your Changes**
+### **3. Make Your Changes**
 
 - Follow PEP8 guidelines for Python code.
 - Keep your commits atomic (one logical change per commit).
@@ -46,7 +46,7 @@ poetry install
 git commit -m "Added support for Webhooks"
 ```
 
-### **4️⃣ Run Tests Before Submitting**
+### **4. Run Tests Before Submitting**
 
 Ensure all tests pass before making a pull request:
 
@@ -54,7 +54,7 @@ Ensure all tests pass before making a pull request:
 poetry run pytest
 ```
 
-### **5️⃣ Submit a Pull Request**
+### **5. Submit a Pull Request**
 
 1. Push your branch:
 
@@ -64,7 +64,7 @@ git push origin feature/your-feature
 
 2. Go to GitHub > Pull Requests > New PR and describe your changes.
 
-### **📝 Code Style Guide**
+### **Code Style Guide**
 
 - Follow Python PEP8 coding style.
 - Use type hints (```def my_function(param: str) -> int:```).
@@ -72,7 +72,7 @@ git push origin feature/your-feature
 - Use meaningful variable names.
 - Keep functions and modules small and focused.
 
-### **🚀 Need Help?**
+### **Need Help?**
 
 Join the discussion in GitHub Issues or start a new one!
 We appreciate every contribution, whether small or big. Thank you! 🎉

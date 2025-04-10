@@ -2,7 +2,7 @@
 A modular Telegram bot powered by [python-telegram-bot](https://python-telegram-bot.readthedocs.io/).  
 This bot is designed for scalability, maintainability, and follows clean architecture principles.
 
-## 🚀 Features
+## Features
 
 - Uses **python-telegram-bot** for handling Telegram interactions.
 - Structured with **SOLID** principles for modularity.
@@ -12,7 +12,7 @@ This bot is designed for scalability, maintainability, and follows clean archite
 
 ---
 
-## 📌 Upcoming Enhancements & Next Steps
+## Upcoming Enhancements & Next Steps
 We are actively improving the kernel to be more reusable, scalable, and efficient. The following enhancements are planned:
 
 - Short-Term Goals
@@ -33,22 +33,22 @@ We are actively improving the kernel to be more reusable, scalable, and efficien
 
 ---
 
-## 📦 Installation & Setup
+## Installation & Setup
 
-### **1️⃣ Install Poetry**
+### **1. Install Poetry**
 
 Poetry is used to manage dependencies and virtual environments:
 ```bash
 pip install poetry
 ```
 
-### **2️⃣ Install Project Dependencies**
+### **2. Install Project Dependencies**
 
 ```bash
 poetry install
 ```
 
-### **3️⃣ Configure Environment Variables**
+### **3. Configure Environment Variables**
 
 Create a .env file in the project root and add your Telegram Bot Token:
 
@@ -80,17 +80,17 @@ DATABASE_TYPE=sqlite
 DATABASE_FILE=bot_database.db
 ```
 
-### **▶️ Running the Bot**
+### **▶ Running the Bot**
 
 You can start the bot in two ways:
 
-#### **1️⃣ Using Poetry**
+#### **1. Using Poetry**
 
 ```bash
 poetry run python bot/main.py
 ```
 
-#### **2️⃣ Using the run.sh Script**
+#### **2. Using the run.sh Script**
 
 Make sure run.sh is executable:
 
@@ -99,7 +99,7 @@ chmod +x run.sh
 ./run.sh
 ```
 
-#### **3️⃣ Using Webhooks (Coming Soon)**
+#### **3. Using Webhooks (Coming Soon)**
 
 ```bash
 poetry run python bot/main.py --webhook
@@ -107,7 +107,7 @@ poetry run python bot/main.py --webhook
 
 ---
 
-## **🛠️ Project Structure**
+## ** Project Structure**
 
 ```bash
 kernel-telegram-bot/
@@ -164,7 +164,7 @@ kernel-telegram-bot/
 
 ---
 
-### **🧪 Running Tests
+### **Running Tests
 
 To run unit tests:
 
@@ -174,7 +174,7 @@ poetry run pytest
 
 ---
 
-### **🛠️ Development & Contribution
+### **Development & Contribution
 
 Fork this repository.
 
@@ -202,18 +202,18 @@ Push and create a pull request.
 
 ---
 
-## ⚖️ License
+## License
 
 This project is licensed under the [GPL-3.0](LICENSE) License. See the LICENSE file for details.
 
-## 🤝 Credits & Contact
+## Credits & Contact
 
 - Created by [LoboGuardian](https://github.com/LoboGuardian)
 
 
 ---
 
-## 🚀 Contribution & Future Development
+## Contribution & Future Development
 We welcome contributions! Our current focus areas include:
 
 - Expanding testing coverage.
