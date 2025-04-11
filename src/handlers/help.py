@@ -1,4 +1,4 @@
-# bot/handlers/help.py
+# src/handlers/help.py
 from telegram import Update
 from telegram.ext import CallbackContext
 

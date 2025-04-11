@@ -1,19 +1,20 @@
-[project]
+[tool.poetry]
 name = "kernel-telegram-bot"
-version = "2025.10.15"
+version = "2025.15.15"
 description = "Kernel for a telegram bot based on python-telegram-bot"
-authors = [
-    {name = "LoboGuardian",email = "loboguardian.dev@gmail.com"}
-]
-license = {text = "GPL-3.0"}
+authors = ["LoboGuardian <loboguardian.dev@gmail.com>"]
+license = "GPL-3.0"
 readme = "README.md"
-requires-python = ">=3.11,<4.0"
-dependencies = [
-    "python-telegram-bot (>=21.11.1,<22.0.0)",
-    "python-dotenv (>=1.0.1,<2.0.0)",
-    "pytest (>=8.3.5,<9.0.0)",
-]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-telegram-bot = {extras = ["webhooks"], version = "^22.0"}
+python-dotenv = "^1.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

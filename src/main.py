@@ -1,6 +1,6 @@
 #!/bin/env python
 #-*-coding:UTF-8-*-
-# bot/main.py
+# src/main.py
 #
 # Made by LoboGuardian
 # Follow me on https://github.com/LoboGuardian
@@ -37,18 +37,27 @@ Run this script to start the bot.
 import logging
 from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
 # Third-party libraries
-from telegram.ext import ApplicationBuilder, CallbackContext, CommandHandler, MessageHandler, filters
+from telegram.ext import (
+    ApplicationBuilder,
+    CommandHandler,
+    MessageHandler,
+    CallbackContext,
+    filters
+)
 
-# from bot.config import ApplicationBuilder, CommandHandler, filters
 from config import TOKEN
 from handlers import start, help, unknown, errors
-# from utils.logger import configure_logging
+from utils.config_loader import Config
+from utils.logger import configure_logging
 
-def main() -> None:
-    """Initialize the bot and register handlers."""
-    app = ApplicationBuilder().token(TOKEN).build()
+# Initialize logging
+configure_logging()
 
-    # Register command handlers
+# Reuse TOKEN, DEBUG_MODE, etc.
+TOKEN = Config.TELEGRAM_BOT_TOKEN
+
+def register_handlers(app):
+    """Register all bot command and message handlers."""
     app.add_handler(CommandHandler("start", start.start_command))
     app.add_handler(CommandHandler("help", help.help_command))
 
@@ -56,8 +65,32 @@ def main() -> None:
     app.add_handler(MessageHandler(filters.COMMAND, unknown.unknown_handle_command))
     app.add_error_handler(errors.error_handler_command)
 
-    # Start polling
+def run_polling():
+    """Run bot using polling (development or fallback mode)."""
+    app = ApplicationBuilder().token(TOKEN).build()
+    register_handlers(app)
     app.run_polling()
+
+def run_webhook():
+    """Run bot using webhook (production mode)."""
+    app = ApplicationBuilder().token(TOKEN).build()
+    register_handlers(app)
+    app.run_webhook(
+        listen="0.0.0.0",
+        url_path="webhook/",
+        webhook_url=Config.WEBHOOK_URL,
+        port=Config.WEBHOOK_PORT,
+    )
+
+
+def main() -> None:
+    """Main entry point to start the bot based on configuration."""
+    if Config.USE_WEBHOOK:
+        logging.info("Starting bot with Webhook")
+        run_webhook()
+    else:
+        logging.info("Starting bot with Polling")
+        run_polling()
 
 if __name__ == "__main__":
     main()

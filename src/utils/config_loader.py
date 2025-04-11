@@ -1,4 +1,4 @@
-# bot/utils/config_loader.py
+# src/utils/config_loader.py
 """
 config_loader.py
 
@@ -26,6 +26,13 @@ class Config:
     DATABASE_URL: str = os.getenv("DATABASE_URL", "")  # PostgreSQL URL
     DATABASE_FILE: str = os.getenv("DATABASE_FILE", "bot_database.db")  # SQLite file path
 
+    # Webhook configuration
+    USE_WEBHOOK: bool = os.getenv("USE_WEBHOOK", "False").lower() in ("true", "1", "yes")
+    WEBHOOK_URL: str = os.getenv("WEBHOOK_URL", "")
+    WEBHOOK_PORT: int = int(os.getenv("WEBHOOK_PORT", "8443"))
+    WEBHOOK_PATH: str = os.getenv("WEBHOOK_PATH", "/webhook")
+    WEBHOOK_HOST: str = os.getenv("WEBHOOK_HOST", "0.0.0.0")
+
     @classmethod
     def validate(cls):
         """Ensure all required environment variables are set."""
@@ -37,6 +44,9 @@ class Config:
 
         if cls.DATABASE_TYPE == "postgres" and not cls.DATABASE_URL:
             raise ValueError("Missing DATABASE_URL for PostgreSQL.")
+        
+        if cls.USE_WEBHOOK and not cls.WEBHOOK_URL:
+            raise ValueError("Missing WEBHOOK_URL while using webhook mode.")
 
 
 # Validate the config on import

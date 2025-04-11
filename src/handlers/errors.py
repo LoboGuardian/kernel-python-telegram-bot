@@ -1,4 +1,4 @@
-# bot/handlers/errors.py
+# src/handlers/errors.py
 from telegram import Update
 from telegram.ext import CallbackContext
 import logging

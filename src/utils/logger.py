@@ -1,4 +1,4 @@
-# bot/utils/logger.py
+# src/utils/logger.py
 import logging
 import warnings
 from utils.config_loader import Config

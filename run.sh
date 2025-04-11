@@ -19,4 +19,4 @@
 # including creating the Pipfile and installing dependencies.
 
 # Ensure the script runs with Poetry
-poetry run python bot/main.py
+poetry run python src/main.py

@@ -1,4 +1,4 @@
-# bot/services/auth.py
+# src/services/auth.py
 """
 auth.py
 

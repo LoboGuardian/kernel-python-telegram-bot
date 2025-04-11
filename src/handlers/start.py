@@ -1,4 +1,4 @@
-# bot/handlers/start.py
+# src/handlers/start.py
 from telegram import Update
 from telegram.ext import CallbackContext
 from services.database import DatabaseFactory
@@ -20,7 +20,7 @@ async def start_command(update: Update, context: CallbackContext) -> None:
 
 
 # Authorized
-# from bot.services.auth import is_user_authorized, unauthorized_access
+# from services.auth import is_user_authorized, unauthorized_access
 
 # async def start_command(update: Update, context: CallbackContext) -> None:
 #     """Handles the /start command and checks user authorization."""
@@ -33,7 +33,7 @@ async def start_command(update: Update, context: CallbackContext) -> None:
 
 
 # Database model 1
-# from bot.services.database import add_user
+# from services.database import add_user
 
 # async def start_command(update: Update, context: CallbackContext) -> None:
 #     """Handles the /start command and registers users."""

@@ -1,4 +1,4 @@
-# bot/services/database.py
+# src/services/database.py
 """
 database.py
 
