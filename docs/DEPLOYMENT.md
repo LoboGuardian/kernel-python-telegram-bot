@@ -49,7 +49,7 @@ cd kernel-telegram-bot
 ### 4. Run the bot:
 
 ```bash
-poetry run python bot/main.py
+poetry run python src/main.py
 ```
 
 ## Deploying with Docker (Coming Soon)

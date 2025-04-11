@@ -25,7 +25,7 @@ poetry run pytest tests/test_database.py
 Example Test (```tests/test_config.py```)
 
 ```python
-from bot.utils.config_loader import Config
+from utils.config_loader import Config
 
 def test_load_config():
     assert Config.LOG_LEVEL in ["DEBUG", "INFO", "WARNING", "ERROR"]

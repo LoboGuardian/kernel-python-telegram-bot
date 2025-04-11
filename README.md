@@ -21,7 +21,7 @@ We are actively improving the kernel to be more reusable, scalable, and efficien
   - Verify PostgreSQL Integration: Ensure database compatibility with PostgreSQL.
 
 - Mid-Term Goals
-  - Plugin System for Dynamic Modules: Load new commands automatically from bot/plugins/.
+  - Plugin System for Dynamic Modules: Load new commands automatically from src/plugins/.
   - Multi-language Support (i18n): Implement a translation system with JSON-based locales.
   - Message Middleware: Filter messages before they reach command handlers.
 
@@ -78,6 +78,10 @@ DATABASE_TYPE=sqlite
 # DATABASE_URL=postgresql://user:password@localhost:5432/mydatabase
 
 DATABASE_FILE=bot_database.db
+
+# USE_WEBHOOK=True
+# WEBHOOK_URL=https://yourdomain.com/webhook/
+# WEBHOOK_PORT=8443
 ```
 
 ### **▶ Running the Bot**
@@ -87,7 +91,7 @@ You can start the bot in two ways:
 #### **1. Using Poetry**
 
 ```bash
-poetry run python bot/main.py
+poetry run python src/main.py
 ```
 
 #### **2. Using the run.sh Script**
@@ -102,7 +106,7 @@ chmod +x run.sh
 #### **3. Using Webhooks (Coming Soon)**
 
 ```bash
-poetry run python bot/main.py --webhook
+poetry run python src/main.py --webhook
 ```
 
 ---
@@ -111,7 +115,7 @@ poetry run python bot/main.py --webhook
 
 ```bash
 kernel-telegram-bot/
-│── bot/                      # Main application logic
+│── src/                      # Main application logic
 │   ├── __init__.py           # Package init file
 │   ├── main.py               # Entry point of the bot
 │   │

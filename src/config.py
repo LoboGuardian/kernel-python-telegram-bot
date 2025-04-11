@@ -1,4 +1,4 @@
-# bot/config.py
+# src/config.py
 from utils.config_loader import Config
 from utils.logger import configure_logging
 

@@ -38,6 +38,10 @@ DATABASE_TYPE=sqlite
 # DATABASE_URL=postgresql://user:password@localhost:5432/mydatabase
 
 DATABASE_FILE=bot_database.db
+
+# USE_WEBHOOK=True
+# WEBHOOK_URL=https://yourdomain.com/webhook/
+# WEBHOOK_PORT=8080
 ```
 
 ## 3. Run the Bot
@@ -45,13 +49,13 @@ DATABASE_FILE=bot_database.db
 - Using Polling (Default):
 
 ```bash
-poetry run python bot/main.py
+poetry run python src/main.py
 ```
 
-- Using Webhooks **(coming soon)**:
+- Using Webhooks:
 
 ```bash
-poetry run python bot/main.py --webhook
+poetry run python src/main.py
 ```
 
 - Using the run.sh Script**
