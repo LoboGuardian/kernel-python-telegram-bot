@@ -16,7 +16,7 @@ Create a .env file:
 # TOKEN
 TELEGRAM_BOT_TOKEN=your_actual_bot_token_here
 # Add Telegram user IDs separated by commas
-AUTHORIZED_USERS=12345678,98765432
+AUTHORIZED_USERS=xxxxxxxx,xxxxxxxx
 
 # Change as needed
 # LOG_LEVEL=DEBUG # Shows detailed information for debugging.
