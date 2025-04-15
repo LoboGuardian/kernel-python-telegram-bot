@@ -6,7 +6,7 @@ from services.database import DatabaseFactory
 db = DatabaseFactory.get_database()
 db.initialize_database()
 
-GREETING_MESSAGE = "Hello, my name is BOT_NAME"
+GREETING_MESSAGE = "Hello, my name is kernel-python-telegram-bot"
 
 async def start_command(update: Update, context: CallbackContext) -> None:
     """Handles the /start command, greets, and registers users."""

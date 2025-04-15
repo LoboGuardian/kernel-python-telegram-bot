@@ -1,4 +1,4 @@
-# 🛠️ Kernel Telegram Bot
+# 🛠️ Kernel Python Telegram Bot
 A modular Telegram bot powered by [python-telegram-bot](https://python-telegram-bot.readthedocs.io/).  
 This bot is designed for scalability, maintainability, and follows clean architecture principles.
 
