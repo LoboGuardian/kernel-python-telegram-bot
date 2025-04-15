@@ -68,55 +68,96 @@ poetry run python src/main.py --webhook
 
 ```bash
 kernel-telegram-bot/
-│── src/                      # Main application logic
-│   ├── __init__.py           # Package init file
-│   ├── main.py               # Entry point of the bot
+├── src/                          # Core application logic
+│   ├── __init__.py               # Marks the src directory as a package
+│   ├── main.py                   # Bot entry point and event loop starter
 │   │
-│   ├── handlers/             # Telegram command handlers
-│   │   ├── __init__.py       # Package init file
-│   │   ├── start.py          # /start command
-│   │   ├── help.py           # /help command
-│   │   ├── unknown.py        # Unknown command handler
-│   │   ├── errors.py         # Error handling
+│   ├── handlers/                 # Telegram command handlers (organized by category)
+│   │   ├── __init__.py           # Initializes the handlers package
+│   │   ├── common/                   # General-purpose commands
+│   │   │   ├── __init__.py
+│   │   │   ├── start.py              # Handles the /start command
+│   │   │   ├── help.py               # Provides a list of available commands (/help)
+│   │   │   ├── ping.py               # Health check (/ping)
+│   │   │   └── about.py              # Shows bot info (/about)
+│   │   │
+│   │   ├── fun/                      # Fun and entertainment-related commands
+│   │   │   ├── __init__.py
+│   │   │   ├── joke.py               # Returns a random joke (/joke)
+│   │   │   ├── roll.py               # Rolls a dice emoji (/roll)
+│   │   │   └── quote.py              # (Optional) Sends a random quote (/quote)
+│   │   │
+│   │   ├── utility/                  # Utility commands (tools, lookups, etc.)
+│   │   │   ├── __init__.py
+│   │   │   ├── weather.py            # Fetches weather info for a city (/weather <city>)
+│   │   │   ├── currency.py           # Converts currency values (/currency USD EUR 100)
+│   │   │   ├── echo.py               # Repeats the user's input (/echo <text>)
+│   │   │   └── time.py               # Shows current server time (/time)
+│   │   │
+│   │   ├── admin/
+│   │   │   ├── __init__.py
+│   │   │   ├── status.py             # /status - Check bot or system status
+│   │   │   ├── ban.py                # /ban <user_id> - Ban a user
+│   │   │   ├── unban.py              # /unban <user_id> - Unban a user
+│   │   │   ├── list_groups.py        # /listgroups - List groups where the bot is active
+│   │   │   ├── leave_group.py        # /leavegroup <group_id> - Force the bot to leave a group
+│   │   │   ├── broadcast.py          # /broadcast <message> - Send message to all groups/channels
+│   │   │   ├── admins.py            # /admins - List group/channel admins
+│   │   │   ├── promote.py           # /promote <user_id>
+│   │   │   ├── demote.py            # /demote <user_id>
+│   │   │   ├── mute.py              # /mute <user_id> [duration]
+│   │   │   ├── unmute.py            # /unmute <user_id>
+│   │   │   ├── warn.py              # /warn <user_id> - Issue warning
+│   │   │   ├── kick.py              # /kick <user_id> - Kick user
+│   │   │   ├── purge.py             # /purge - Clean messages
+│   │   │   ├── set_rules.py         # /setrules <text> - Define rules
+│   │   │   ├── rules.py             # /rules - Show current rules
+│   │   │   └── pin_message.py        # /pin - Pin the replied message (admin only)
+│   │   │
+│   │   └── fallback/                 # Fallbacks and error handlers
+│   │       ├── __init__.py
+│   │       ├── unknown.py            # Handles unknown or invalid commands
+│   │       └── errors.py             # Global error and exception handling
+│   │    
 │   │
-│   ├── services/             # Business logic (auth, db, etc.)
-│   │   ├── __init__.py       # Package init file
-│   │   ├── auth.py           # Manages user authentication & permissions.
-│   │   ├── database.py       # Handles data storage (SQLite/PostgreSQL).
-│   │   ├── cache.py          # (Upcoming) Redis-based caching (for faster performance)
-│   │   ├── api_client.py     # (Upcoming) Handles API integrations (with external APIs)
+│   ├── services/                 # Business logic and backend integrations
+│   │   ├── __init__.py           # Initializes the services package
+│   │   ├── auth.py               # User authentication and permission checks
+│   │   ├── database.py           # Data persistence (supports SQLite & PostgreSQL)
+│   │   ├── cache.py              # (Planned) Redis-based caching for performance
+│   │   ├── api_client.py         # (Planned) Integration with third-party APIs
 │   │
-│   ├── utils/                # Utility functions (config, logging)
-│   │   ├── __init__.py       # Package init file
-│   │   ├── config_loader.py  # Load config files or .env
-│   │   ├── logger.py         # Logging setup
-│   │   ├── middleware.py     # (Upcoming) Preprocess messages before reaching handlers (spam filtering, normalization)
+│   ├── utils/                    # Utility modules for shared logic
+│   │   ├── __init__.py           # Initializes the utils package
+│   │   ├── config_loader.py      # Loads environment variables and settings
+│   │   ├── logger.py             # Sets up structured logging for the app
+│   │   ├── middleware.py         # (Planned) Preprocessing for messages (e.g., spam filtering)
 │   │
-│   ├── plugins/              # (Upcoming) Dynamic plugin modules)
-│   ├── locales/              # (Upcoming) Multi-language support
-│   ├── dashboard/            # (Upcoming) FastAPI-based admin panel
-│   ├── config.py             # Main bot configuration
+│   ├── plugins/                  # (Planned) Dynamic plugin loader for modular extensions
+│   ├── locales/                  # (Planned) Internationalization and language packs
+│   ├── dashboard/                # (Planned) FastAPI-powered admin panel for bot management
+│   ├── config.py                 # Centralized bot configuration and constants
 │
-├── tests/                    # Unit and integration tests
-│   ├── test_config.py        # Tests for config loader
-│   ├── test_database.py      # Tests for database functionality
-│   ├── test_handlers.py      # Tests for bot command handlers
+├── tests/                        # Automated unit and integration tests
+│   ├── test_config.py            # Tests for configuration loading
+│   ├── test_database.py          # Tests for data persistence logic
+│   ├── test_handlers.py          # Tests for Telegram command responses
 │
-├── docs/                     # Documentation files
-│   ├── SETUP.md              # Setup guide
-│   ├── TESTING.md            # Testing guide
-│   ├── DEPLOYMENT.md         # Deployment instructions
+├── docs/                         # Documentation and guides
+│   ├── SETUP.md                  # How to install and configure the bot
+│   ├── TESTING.md                # How to write and run tests
+│   ├── DEPLOYMENT.md             # Deployment guide and best practices
 │
-├── .gitignore                # Git ignore rules
-├── .env                      # Environment variables
-├── LICENSE                   # License file
-├── README.md                 # Project documentation
-├── CODE_OF_CONDUCT.md        # Code of conduct for contributors
-├── AUTHORS.md                # List of contributors
-├── CONTRIBUTING.md           # Contribution guidelines
-├── pyproject.toml            # Poetry configuration
-├── poetry.lock               # Poetry dependencies
-└── run.sh                    # Script to run the bot
+├── .gitignore                    # Specifies intentionally untracked files to ignore in Git
+├── .env                          # Environment-specific variables (e.g., API keys, tokens)
+├── LICENSE                       # License file for open source usage terms
+├── README.md                     # Main project overview and usage documentation
+├── CODE_OF_CONDUCT.md            # Guidelines for respectful community behavior
+├── AUTHORS.md                    # List of project authors and contributors
+├── CONTRIBUTING.md               # Instructions for contributing to the project
+├── pyproject.toml                # Project configuration for Poetry (dependencies, metadata)
+├── poetry.lock                   # Locked dependency versions for reproducible builds
+└── run.sh                        # Shell script to launch the bot with one command
 ```
 
 ---
