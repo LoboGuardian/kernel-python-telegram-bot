@@ -102,23 +102,22 @@ kernel-telegram-bot/
 │   │   │   ├── list_groups.py        # /listgroups - List groups where the bot is active
 │   │   │   ├── leave_group.py        # /leavegroup <group_id> - Force the bot to leave a group
 │   │   │   ├── broadcast.py          # /broadcast <message> - Send message to all groups/channels
-│   │   │   ├── admins.py            # /admins - List group/channel admins
-│   │   │   ├── promote.py           # /promote <user_id>
-│   │   │   ├── demote.py            # /demote <user_id>
-│   │   │   ├── mute.py              # /mute <user_id> [duration]
-│   │   │   ├── unmute.py            # /unmute <user_id>
-│   │   │   ├── warn.py              # /warn <user_id> - Issue warning
-│   │   │   ├── kick.py              # /kick <user_id> - Kick user
-│   │   │   ├── purge.py             # /purge - Clean messages
-│   │   │   ├── set_rules.py         # /setrules <text> - Define rules
-│   │   │   ├── rules.py             # /rules - Show current rules
+│   │   │   ├── admins.py             # /admins - List group/channel admins
+│   │   │   ├── promote.py            # /promote <user_id>
+│   │   │   ├── demote.py             # /demote <user_id>
+│   │   │   ├── mute.py               # /mute <user_id> [duration]
+│   │   │   ├── unmute.py             # /unmute <user_id>
+│   │   │   ├── warn.py               # /warn <user_id> - Issue warning
+│   │   │   ├── kick.py               # /kick <user_id> - Kick user
+│   │   │   ├── purge.py              # /purge - Clean messages
+│   │   │   ├── set_rules.py          # /setrules <text> - Define rules
+│   │   │   ├── rules.py              # /rules - Show current rules
 │   │   │   └── pin_message.py        # /pin - Pin the replied message (admin only)
 │   │   │
 │   │   └── fallback/                 # Fallbacks and error handlers
 │   │       ├── __init__.py
 │   │       ├── unknown.py            # Handles unknown or invalid commands
 │   │       └── errors.py             # Global error and exception handling
-│   │    
 │   │
 │   ├── services/                 # Business logic and backend integrations
 │   │   ├── __init__.py           # Initializes the services package
