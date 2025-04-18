@@ -4,6 +4,7 @@ import warnings
 from utils.config_loader import Config
 from telegram.warnings import PTBDeprecationWarning
 
+
 def configure_logging(log_filename="telegram_bot.log"):
     """Configures logging for the bot using the specified LOG_LEVEL."""
 
@@ -31,12 +32,12 @@ def configure_logging(log_filename="telegram_bot.log"):
     # Log at multiple levels
     # If LOG_LEVEL=DEBUG, you should see all messages.
     logging.debug(f"Logging configured. Level: {Config.LOG_LEVEL}")
-    
+
     # If LOG_LEVEL=INFO, you should see INFO, WARNING, and ERROR.
     logging.info(f"Logging configured. Level: {Config.LOG_LEVEL}")
-    
+
     # If LOG_LEVEL=WARNING, you should see WARNING and ERROR.
     logging.warning(f"Logging configured. Level: {Config.LOG_LEVEL}")
-    
+
     # If LOG_LEVEL=ERROR, you should only see ERROR.
     logging.error(f"Logging configured. Level: {Config.LOG_LEVEL}")

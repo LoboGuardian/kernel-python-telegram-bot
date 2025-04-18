@@ -8,6 +8,7 @@ db.initialize_database()
 
 GREETING_MESSAGE = "Hello, my name is kernel-python-telegram-bot"
 
+
 async def start_command(update: Update, context: CallbackContext) -> None:
     """Handles the /start command, greets, and registers users."""
     user = update.effective_user
@@ -18,7 +19,6 @@ async def start_command(update: Update, context: CallbackContext) -> None:
     await update.message.reply_text("You are now registered in the bot!")
 
 
-
 # Authorized
 # from services.auth import is_user_authorized, unauthorized_access
 
@@ -27,9 +27,8 @@ async def start_command(update: Update, context: CallbackContext) -> None:
 #     if not is_user_authorized(update):
 #         await unauthorized_access(update, context)
 #         return  # Stop execution if unauthorized
-    
-#     await update.message.reply_text("Welcome! You are authorized to use this bot.")
 
+#     await update.message.reply_text("Welcome! You are authorized to use this bot.")
 
 
 # Database model 1

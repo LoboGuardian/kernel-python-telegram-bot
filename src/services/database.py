@@ -11,8 +11,10 @@ import sqlite3
 # from psycopg2.extras import RealDictCursor
 from utils.config_loader import Config
 
+
 class BaseDatabase:
     """Abstract class for database operations."""
+
     def initialize_database(self):
         raise NotImplementedError
 
@@ -31,7 +33,8 @@ class SQLiteDatabase(BaseDatabase):
 
     def __init__(self):
         """Initialize SQLite connection."""
-        self.conn = sqlite3.connect(Config.DATABASE_FILE, check_same_thread=False)
+        self.conn = sqlite3.connect(
+            Config.DATABASE_FILE, check_same_thread=False)
 
     def initialize_database(self):
         """Creates necessary tables if they don’t exist."""
@@ -76,7 +79,7 @@ class SQLiteDatabase(BaseDatabase):
 
 class PostgreSQLDatabase(BaseDatabase):
     """Handles PostgreSQL database operations."""
-    
+
     pass
 
 #     def __init__(self):
@@ -134,4 +137,5 @@ class DatabaseFactory:
         elif Config.DATABASE_TYPE == "sqlite":
             return SQLiteDatabase()
         else:
-            raise ValueError("Invalid DATABASE_TYPE. Use 'sqlite' or 'postgres'.")
+            raise ValueError(
+                "Invalid DATABASE_TYPE. Use 'sqlite' or 'postgres'.")

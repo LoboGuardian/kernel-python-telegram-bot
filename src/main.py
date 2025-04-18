@@ -1,5 +1,5 @@
 #!/bin/env python
-#-*-coding:UTF-8-*-
+# -*-coding:UTF-8-*-
 # src/main.py
 #
 # Made by LoboGuardian
@@ -57,20 +57,24 @@ configure_logging()
 # Reuse TOKEN, DEBUG_MODE, etc.
 TOKEN = Config.TELEGRAM_BOT_TOKEN
 
+
 def register_handlers(app):
     """Register all bot command and message handlers."""
     app.add_handler(CommandHandler("start", start.start_command))
     app.add_handler(CommandHandler("help", help.help_command))
 
     # Error and unknown command handlers
-    app.add_handler(MessageHandler(filters.COMMAND, unknown.unknown_handle_command))
+    app.add_handler(MessageHandler(filters.COMMAND,
+                    unknown.unknown_handle_command))
     app.add_error_handler(errors.error_handler_command)
+
 
 def run_polling():
     """Run bot using polling (development or fallback mode)."""
     app = ApplicationBuilder().token(TOKEN).build()
     register_handlers(app)
     app.run_polling()
+
 
 def run_webhook():
     """Run bot using webhook (production mode)."""
@@ -92,6 +96,7 @@ def main() -> None:
     else:
         logging.info("Starting bot with Polling")
         run_polling()
+
 
 if __name__ == "__main__":
     main()
