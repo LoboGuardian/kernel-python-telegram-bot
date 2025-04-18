@@ -46,7 +46,8 @@ from telegram.ext import (
 )
 
 from config import TOKEN
-from handlers import start, help, unknown, errors
+from handlers.commom import start, help
+from handlers.fallback import errors, unknown
 from utils.config_loader import Config
 from utils.logger import configure_logging
 
